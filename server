@@ -3,11 +3,11 @@
 export TENSOR_DIR="/var/data/tensorflow"
 export TENSOR_TGZ="/home/ubuntu/app/notebook.tgz"
 
-if [ !-d "${TENSOR_DIR}" ] && [ -f "${TENSOR_TGZ}" ]; then
+if [ ! -d "${TENSOR_DIR}" ] && [ -f "${TENSOR_TGZ}" ]; then
   mkdir -p "${TENSOR_DIR}"
   cd "${TENSOR_DIR}"
   cp "${TENSOR_TGZ}" "${TENSOR_DIR}"
   tar xfvz "$(basename ${TENSOR_TGZ})"
 fi
 
-jupyter notebook --ip=0.0.0.0
+tensorboard --logdir "/var/lib/lxc/data/tensorflow/tensorflow_training/logs" && killall -9 tensorboard
