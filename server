@@ -10,4 +10,4 @@ if [ ! -d "${TENSOR_DIR}" ] && [ -f "${TENSOR_TGZ}" ]; then
   tar xfvz "$(basename ${TENSOR_TGZ})"
 fi
 
-tensorboard --logdir "/var/lib/lxc/data/tensorflow/tensorflow_training/logs" --host 0.0.0.0 && killall -9 tensorboard
+tensorboard --logdir "/var/data/tensorflow/tensorflow_training/logs" --host 0.0.0.0 && killall -9 tensorboard
